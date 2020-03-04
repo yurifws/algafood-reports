@@ -1,32 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vendas-diarias" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12937ca8-d44e-45d7-9d9d-7622baaf9eb0">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Random Records"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
+	<field name="data" class="java.util.Date"/>
+	<field name="totalVendas" class="java.lang.Long"/>
+	<field name="totalFaturado" class="java.math.BigDecimal"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="60" forecolor="#FFFFFF" backcolor="#525252" uuid="45092cc8-21be-4edd-ae2e-c3d79ae8fdc1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Vendas Diárias]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="29" uuid="67faa2f9-aa2b-47e9-9fd8-2665cb3224c8"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="100" height="29" uuid="1b472279-f00e-4ad9-b53b-d2f356072402"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Qtde Vendas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="29" uuid="fb0978ac-898b-4d06-8095-b650525c575b"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Faturado]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="100" height="24" uuid="6f6e2d5d-44a7-4225-86c4-ff0332a99cc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[DATEFORMAT( $F{data}, "dd/MM/yyyy")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="100" height="24" uuid="7a27dda0-1ecc-4d75-9112-abf898ad408f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalVendas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="250" y="0" width="100" height="24" uuid="b2e82692-942d-4a3e-8bed-796d332dc9d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalFaturado}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
